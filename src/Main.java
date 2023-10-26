@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
 
+        String month = "bgfdbMarch";
+        System.out.println("The month of " + month + " is in the " + getQuarter(month));
+
         int switchValue = 6;
 
         switch (switchValue) {
@@ -17,7 +20,20 @@ public class Main {
         }
     }
 
+    public static String getQuarter(String month) {
 
+        return switch (month) {
+            case "January", "February", "March" -> "first quarter";
+            case "April", "May", "June" -> "second quarter";
+            case "July", "August", "September" -> "third quarter";
+            case "October", "November", "December" -> "fourth quarter";
+            default ->  {
+                String badResponse = month + " is bad";
+                yield badResponse;
+            }
 
+        };
+
+    }
 
 }
